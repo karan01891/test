@@ -5,12 +5,12 @@
 #   Do not edit lines with comments that start with: "# Last line in"
 ###############################################################################
 # Imports  # there will only be two imports added here.
-
+import os
 
 ###############################################################################
 # Write f01 that prints "Hello World!" and calls f02. (three lines)
 def f01():
-
+    print("Hello World")
     f02()
 
 
@@ -18,16 +18,19 @@ def f01():
 # Write f02 that sets the variables x, y, and z equal to the words
 # necessary to have the f03 print "i love python!" (five lines)
 
+def f02():
+    x = "I"
+    y = "love"
+    z = "python"
 
-
-
+    return x,y,z
     f03(x, y, z)  # Last line in f2()
 
 
 ###############################################################################
 # Finish f03 (replace the ????).
-def f03(*words):
-    truth = " ".????(words)  # This is broken.
+def f03(x,y,z):
+    truth = " ".join(words)  # This is broken.
     truth_emphasized = truth + "!"
     print(truth_emphasized)
     f04(truth)  # Last line in f03()
@@ -37,7 +40,7 @@ def f03(*words):
 # Write f04 that prints truth backwards (edit one line only)
 # Ex. f4("Littlest Bear") prints "raeB tselttiL"
 def f04(string):
-
+    print(truth[::-1])
     f05(string)  # Last line in f04()
 
 
@@ -50,11 +53,15 @@ def f04(string):
 #  Info
 #   Info
 #    Info
+#
 def f05(word):
-
-
-
-
+    word = 'word'
+    for x in range(len(word)):
+        if x ==0:
+            print(word)
+            continue
+        else:
+            print (" "*x + word)
 
     f06("South Hall", "Python Rocks!")  # Last line in f05()
 
@@ -72,12 +79,21 @@ def f05(word):
 # 'short_string' has only 92.31% the number of chars of longer_string
 def f06(string1, string2):
 
+    x = string1
+    y = string2
+    longer_string =""
+    shorter_string =""
+    difference = 0 
+    if len(x) > len(y):
+        longer_string = x
+        shorter_string = y
+    else:
+        longer_string = y
+        shorter_string= x
+    difference = len(longer_string) - len(shorter_string)
+    print ("{} is longer than {} by {} characters".format(longer_string,shorter_string,difference))
 
-
-
-
-
-
+    # still need to run part 2
     various_solutions()  # Last line in f06()
 
 
@@ -93,7 +109,7 @@ def f06(string1, string2):
 ###############################################################################
 def various_solutions():
     """ This checks solutions. ONLY EDIT PARAMETERS PASSED TO FUNCTIONS. """
-    while_ = f07()
+    while_ = f07(n = 1)
     for_ = f08()
     list_comprehension = f09()
     recursion = f10()
@@ -112,23 +128,40 @@ def various_solutions():
 
 
 ###############################################################################
-def f07():
-    ...
-
+def f07(n):
+    sum = 0
+    while n < 501:
+        if n % 3 = 0 and n % 5 = 0:
+            sum += n
+        elif n % 3 == 0:
+            sum +=n
+        elif n % 5 ==0:
+            sum += n
+        n = n + 1  
+    print (sum)
 
 ###############################################################################
 def f08():
-    ...
+    sum = 0
+    for i in range (1,501):
+        if n % 3 == 0 and n % 5 == 0:
+            sum += n
+        elif n % 3 == 0:
+            sum +=n
+        elif n % 5 ==0:
+            sum += n
+    print (sum)
 
 
 ###############################################################################
 def f09():
-    ...
-
+    
+    sum([i for i in range(500) if (i % 3 == 0 and i % 5 ==0) or i % 3 == 0 or i % 5 == 0])
+    print (sum)
 
 ###############################################################################
 def f10():
-    ...
+    # need to complete this please proceed
 
 
 ###############################################################################
@@ -136,7 +169,16 @@ def f10():
 # strings, integers if they started as floats, and as the value 0 if they
 # started as ints.
 def f11(args):
-    ...
+    for x in args:
+        if type(x) == float:
+            print(int(x)
+            continue
+        elif type(x) == int:
+            print(0)
+            continue
+        elif type(x) == str
+            print(float(x))
+            continue
 
 
 ###############################################################################
@@ -152,9 +194,19 @@ def f11(args):
 # Ex. printing
 #   [1.0, 1.3, 2.443]
 def f12():
-    ...
-
-
+    lst = list()
+    while True:
+        hi = input("Enter a word ")
+        if hi == 'done':
+            break
+        try:
+            float(hi)
+            lst.append(float(hi))
+        except ValueError:
+            with open("log_file.txt" ,"a") as handle1:
+                handle1.write(hi +'\n')
+       
+    print (lst)
 
 
 
@@ -164,7 +216,7 @@ def f12():
 ###############################################################################
 # Fix the error in f13:
 def f13():
-    for each in "string"
+    for each in "string":
         print(each)
     f14()  # Last line in f13()
 
@@ -175,6 +227,9 @@ def f13():
 # Please do so at the top of the file.
 # Ex. /Users/dsg/pbc_2016/test/test_danielsgriffin.py
 def f14():
+    cwd = os.getcwd()
+    print(cwd)
+    # need to add the file name
 
 
     f15()  # Last line in f14()
@@ -324,7 +379,7 @@ def f23(lists_):
 # Write main() that calls f01, then prints the The Zen of Python, by Tim Peters.
 # (three lines)
 def main():
-    ...
+    f01()
 
 
 
@@ -332,5 +387,5 @@ def main():
 
 
 # Write the boilerplate code. (two lines, plus empty line at end)
-
+main()
 
